@@ -1,7 +1,4 @@
-# Student-Mental-Health-and-Lifestyle-Dashboard-
-Power BI analysis of student lifestyle factors affecting mental health and academic performance.
 🎓 Student Mental Health & Lifestyle Analytics Dashboard
-
 📌 Project Overview
 
 This project analyzes how lifestyle behaviors influence students’ mental health and academic performance using Power BI.
