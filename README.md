@@ -1,220 +1,93 @@
-🎓 Student Mental Health & Lifestyle Analytics Dashboard
-📌 Project Overview
+# 🎓 Student Mental Health Analysis Dashboard (Power BI)
 
-This project analyzes how lifestyle behaviors influence students’ mental health and academic performance using Power BI.
-The aim is to transform raw behavioral data into a decision-support dashboard that helps identify stress drivers and detect students who may require early intervention.
-
-The dashboard explores relationships between:
-
-- Sleep patterns
-- Study habits
-- Social media usage
-- Physical activity
-- Counseling participation
-- Family support systems
-- Academic performance (GPA)
-- Self-reported stress levels
+## 📌 Project Overview
+This project analyzes the key factors influencing student mental well-being using a structured dataset of 760 students. The goal is to uncover behavioral and psychosocial drivers of stress and provide actionable insights for institutions.
 
 ---
 
-🎯 Project Objectives
-
-✔ Understand key lifestyle factors affecting student mental health
-✔ Identify patterns associated with high stress levels
-✔ Segment students into behavioral risk categories
-✔ Provide actionable insights for wellbeing and academic planning
-✔ Demonstrate real-world data analytics using Power BI and DAX
+## 🎯 Objectives
+- Understand the distribution of student stress levels
+- Identify factors influencing mental well-being
+- Detect high-risk students
+- Support data-driven decision-making for student support systems
 
 ---
 
-📂 Dataset Description
-
-The dataset contains anonymized student records describing lifestyle, academic, and psychological indicators.
-
-Column| Description
-Student ID| Unique identifier for each student
-Age| Student age
-Gender| Gender category
-Study Hours| Weekly academic study time
-Sleep Hours| Average sleep per night
-Social Media Hours| Daily social media usage
-Exercise Hours| Weekly physical activity
-Diet Quality| Self-reported nutrition quality
-Family Support| Perceived family support level
-Counseling Attendance| Whether student attends counseling
-GPA| Academic performance score
-Stress Level| Self-reported stress score (1–10)
+## 📊 Tools & Technologies
+- Power BI (Data Visualization & Dashboard)
+- DAX (Data Analysis Expressions)
+- Excel/CSV Dataset
 
 ---
 
-🛠 Tools & Technologies Used
-
-- Power BI Desktop — Visualization and dashboard development
-- Power Query — Data cleaning and transformation
-- DAX (Data Analysis Expressions) — Analytical modeling and KPIs
-- Microsoft Excel — Source dataset
-
----
-
-🔄 Data Preparation Process
-
-1. Imported Excel dataset into Power BI.
-2. Cleaned and standardized column names.
-3. Corrected data types for numeric and categorical variables.
-4. Removed blank or inconsistent records.
-5. Built calculated measures and segmentation fields.
+## 📂 Dataset Features
+- Sleep Hours
+- Exercise Hours per Week
+- Social Media Usage
+- Study Hours
+- GPA
+- Financial Stress
+- Peer Pressure
+- Family Support
+- Coping Mechanisms
 
 ---
 
-📊 Key Metrics Created (DAX)
+## 📈 Dashboard Structure
 
-Average Indicators
+### 🔹 Page 1: Mental Health Overview
+- KPI Cards (Stress, Sleep, Exercise, Social Media, Risk %)
+- Stress Distribution (Column Chart)
+- Coping Mechanisms (Donut Chart)
+- Lifestyle Scatter Analysis
 
-Avg Stress = AVERAGE(Data[Stress Level])
-Avg Sleep = AVERAGE(Data[Sleep Hours])
-Avg Study Hours = AVERAGE(Data[Study Hours])
-Avg GPA = AVERAGE(Data[GPA])
-Total Students = COUNT(Data[Student ID])
-
----
-
-Stress Category Segmentation
-
-Stress Category =
-SWITCH(TRUE(),
-Data[Stress Level] <= 3, "Low",
-Data[Stress Level] <= 6, "Moderate",
-"High"
-)
-
-This classification allows easier visualization of student wellbeing distribution.
+### 🔹 Page 2: Drivers & Insights
+- Exercise vs Stress (Clustered Column)
+- Financial Stress Impact
+- Family Support Influence
+- GPA vs Stress Analysis
 
 ---
 
-Behavioral Stress Risk Score (Composite Metric)
+## 🔍 Key Insights
 
-A calculated indicator combining multiple behavioral risk factors:
-
-Stress Risk Score =
-VAR SleepRisk = IF(AVERAGE(Data[Sleep Hours]) < 6, 2, 0)
-VAR SocialRisk = IF(AVERAGE(Data[Social Media Hours]) > 4, 2, 0)
-VAR ExerciseRisk = IF(AVERAGE(Data[Exercise Hours]) < 2, 2, 0)
-RETURN SleepRisk + SocialRisk + ExerciseRisk
+- Most students experience **moderate stress**, indicating it is widespread.
+- **Financial and social pressures** have a stronger impact than academic workload.
+- **Exercise and sleep** improve stability but do not eliminate stress.
+- High-performing students may still experience **significant mental pressure**.
+- Students rely more on **personal coping strategies** than institutional support.
 
 ---
 
-Risk Classification
+## ⚠️ High-Risk Detection
+A DAX-based model identifies students with:
+- High stress levels
+- Low sleep duration
 
-Risk Level =
-SWITCH(TRUE(),
-[Stress Risk Score] <= 1, "Low Risk",
-[Stress Risk Score] <= 3, "Moderate Risk",
-"High Risk"
-)
-
-This helps identify students potentially needing wellbeing support.
+This helps highlight groups requiring intervention.
 
 ---
 
-📈 Dashboard Structure
-
-🔹 Page 1 — Executive Overview
-
-- KPI Cards (Average Stress, Sleep, GPA, Student Count)
-- Stress Distribution by Category
-- Study Hours vs Stress Visualization
-
-🔹 Page 2 — Lifestyle Drivers
-
-- Sleep vs Stress Scatter Analysis
-- Social Media Usage vs Academic Performance
-- Exercise vs Stress Relationship
-- Key Influencers Visual identifying major stress drivers
-
-🔹 Page 3 — Risk Monitoring
-
-- Risk Level Segmentation Charts
-- High-Risk Student Identification Table
-- Behavioral indicators for early detection
+## 💡 Recommendations
+- Improve access to mental health support services
+- Provide financial assistance programs
+- Encourage structured wellness initiatives
+- Monitor student risk indicators continuously
 
 ---
 
-🔍 Key Insights Discovered
-
-📉 Reduced sleep duration is strongly associated with higher stress levels.
-📱 Excessive social media usage correlates with declining academic outcomes.
-🏃 Students engaging in regular exercise report lower stress indicators.
-🎓 Balanced lifestyle habits align with stronger academic performance.
-⚠ A defined segment of students falls into a high behavioral risk category.
+## 🧠 Conclusion
+Student mental health is influenced by a combination of lifestyle habits and external pressures. Effective solutions require both behavioral support and institutional intervention.
 
 ---
 
-💡 Business Value of This Analysis
+## 📸 Dashboard Preview
+<img width="1096" height="617" alt="Screenshot 2026-03-14 095101" src="https://github.com/user-attachments/assets/60c1a3fe-ad84-401d-873d-0c590a7c8832" />
+<img width="1101" height="616" alt="Screenshot 2026-03-14 095146" src="https://github.com/user-attachments/assets/a2898c1b-b95b-4e18-85d9-2d77f025ec6f" />
 
-This dashboard demonstrates how data analytics can support:
-
-- Student wellbeing programs
-- Preventive mental health strategies
-- Academic advisory planning
-- Counseling resource allocation
-- Evidence-based institutional decision-making
 
 ---
 
-📁 Repository Structure
-
-student-mental-health-dashboard/
-│
-├── dataset/
-│   └── Student mental health Analysis.xlsx
-│
-├── dashboard/
-│   └── MentalHealthDashboard.pbix
-│
-├── images/
-│   └── dashboard-preview.png
-│
-└── README.md
-
----
-
-🚀 How to Use This Project
-
-1️⃣ Download the ".pbix" file.
-2️⃣ Open with Power BI Desktop.
-3️⃣ Refresh data if prompted.
-4️⃣ Use slicers to explore different student segments interactively.
-
----
-
-📚 Skills Demonstrated
-
-- Data Cleaning & Transformation
-- Data Modeling in Power BI
-- Advanced DAX Calculations
-- Behavioral Data Analysis
-- Risk Segmentation Techniques
-- Interactive Dashboard Design
-- Insight Communication & Storytelling
-
----
-
-🔮 Future Enhancements
-
-- Predictive analytics for stress forecasting
-- Integration with longitudinal student data
-- Machine learning classification of risk patterns
-- Automated reporting for institutional monitoring
-
----
-
-👤 Author
-
-Abdul-Razaq Abdul-Qadir Adedeji
-Biochemist transitioning into Data Analytics with a focus on applying data-driven solutions to health, education, and organizational wellbeing.
-
----
-
-⭐ Project Purpose
-
-This project was developed as part of a professional data analytics portfolio to demonstrate the ability to transform raw behavioral datasets into meaningful, decision-oriented insights.
+## 👤 Author
+Abdul-Razaq Abdul-Qadir  
+Aspiring Data Analyst | Biochemist
